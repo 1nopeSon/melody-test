@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    
     var currentFloor = 02;
     $(".home-image path").on('mouseover', function() {
         $(".home-image path").removeClass("current-floor");
@@ -25,4 +26,16 @@ $(document).ready(function () {
             $(`[data-floor =${usCurrentFloor}]`).toggleClass("current-floor");
         }
     });
+
+    var modal = $(".modal");
+    $(".home-image path").on("click", toggleModal);
+
+    $(".modal-close-button").on("click", toggleModal);
+
+    $(".view-flats").on("click", toggleModal);
+
+    function toggleModal () {
+        modal.toggleClass(('is-open'));
+        $(".modal-counter").text(currentFloor);
+    }
 }); 
